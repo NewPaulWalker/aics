@@ -152,7 +152,7 @@ class MNIST_MLP(object):
     def evaluate(self):
         pred_results = np.zeros([self.test_data.shape[0]])
         for idx in range(int(self.test_data.shape[0]/self.batch_size)):
-            batch_images=self.test_data[idx*self.batch_size:(idx+1)*self.batch_size, :1]
+            batch_images=self.test_data[idx*self.batch_size:(idx+1)*self.batch_size, :-1]
             prob = self.forward(batch_images)
             pred_labels=np.argmax(prob,axis=1)
             pred_results[idx*self.batch_size:(idx+1)*self.batch_size]=pred_labels
