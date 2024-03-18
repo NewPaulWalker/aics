@@ -33,7 +33,7 @@ class FullyConnectedLayer(object):
     def backward(self, top_diff):   # 反向传播的计算
         # TODO：全连接层的反向传播，计算参数梯度和本层损失
         self.d_weight=np.matmul(self.input.T,top_diff)
-        self.d_bias=top_diff
+        self.d_bias=np.matmul(np.ones(top_diff.shape[0]).T,top_diff)
         bottom_diff=np.matmul(top_diff, self.weight.T)
 
         return bottom_diff
