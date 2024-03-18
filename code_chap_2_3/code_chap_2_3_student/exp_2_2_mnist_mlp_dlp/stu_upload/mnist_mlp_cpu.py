@@ -110,6 +110,7 @@ class MNIST_MLP(object):
         h2=self.relu2.forward(h2)
         h3=self.fc3.forward(h2)
         prob=self.softmax.forward(h3)
+        time.sleep(1.5)
         return prob
 
 
